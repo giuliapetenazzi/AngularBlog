@@ -1,0 +1,16 @@
+<p>comments works!</p>
+
+
+<div *ngIf="!comments.length; else elseBlock">Comments</div>
+<ng-template #elseBlock>No comments yet</ng-template>
+<ul class="comments">
+    <li *ngFor="let comment of comments" class="comment">
+        <a (click)="openPost(comment)" [routerLink]="['/comment', comment.id]">
+            <div class="badge">{{ comment.id || -1 }}</div>
+            <div class="right">
+                <span>{{comment.title}}</span> <span class="separator"></span> <span>{{comment.userId}}</span>
+                <p>{{comment.body}}</p>
+            </div>
+        </a>
+    </li>
+</ul>
