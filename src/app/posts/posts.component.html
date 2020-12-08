@@ -1,9 +1,11 @@
 <div>
   <h2>Posts</h2>
 
+  <mat-spinner *ngIf="loading" mode="indeterminate"> </mat-spinner>
+
   <div class="posts" *ngIf="posts && posts.length; else elseBlock">
     <li *ngFor="let post of posts" class="post">
-      <a [routerLink]="['/post', post.id]" >
+      <a [routerLink]="['/post', post.id]">
         <div class="badge">{{ post.id || -1 }}</div>
         <div class="right">
           <span>{{post.title}}</span> <span class="separator"></span> <span>{{post.userName}}</span>
@@ -12,7 +14,8 @@
       </a>
     </li>
   </div>
-
-<ng-template #elseBlock>No posts yet</ng-template>
+  <ng-template #elseBlock>
+    <p *ngIf="!loading"> No posts yet </p>
+  </ng-template>
 
 </div>

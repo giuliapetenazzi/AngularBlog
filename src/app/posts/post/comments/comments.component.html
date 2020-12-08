@@ -1,6 +1,8 @@
 <div>
   <h2>Comments</h2>
 
+  <mat-spinner *ngIf="loading" mode="indeterminate"> </mat-spinner>
+
   <ul class="comments" *ngIf="comments && comments.length; else elseBlock">
     <li *ngFor="let comment of comments">
       <div class="comment">
@@ -14,7 +16,9 @@
     </li>
   </ul>
 
-  <ng-template #elseBlock>No comments yet</ng-template>
+  <ng-template #elseBlock>
+    <p *ngIf="!loading"> No comments yet. Write the first one! </p>
+  </ng-template>
 
   <form class="addcomment-form"  [formGroup]="addcommentForm"  (ngSubmit)="onClickAddComment()">
     <mat-form-field class="addcomment-full-width">

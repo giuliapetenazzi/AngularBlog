@@ -16,6 +16,7 @@ import { LoginService } from '../../../login/login.service';
 export class CommentsComponent implements OnInit {
   addcommentForm: FormGroup;
   comments: Comment[];
+  loading = true;
 
   @Input() postId: number;
 
@@ -35,7 +36,7 @@ export class CommentsComponent implements OnInit {
 
   getComments(postId): void {
     this.commentsService.getComments(postId)
-      .subscribe(comments => (this.comments = comments));
+      .subscribe(comments => {this.comments = comments; this.loading = false});
   }
 
   onClickAddComment(): void {

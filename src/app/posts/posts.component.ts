@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 import { Post } from './post';
-import { User } from './../utils/user';
 import { PostsService } from './posts.service';
 import { UsersService } from '../utils/users.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-posts',
@@ -15,6 +13,7 @@ import { Observable } from 'rxjs';
 })
 
 export class PostsComponent implements OnInit {
+  loading = true;
   posts: Post[];
 
   constructor(
@@ -33,6 +32,7 @@ export class PostsComponent implements OnInit {
     this.postsService.getPosts()
       .subscribe(posts => {
         this.posts = posts;
+        this.loading = false;
         this.getUsersName(posts);
       });
   }
@@ -48,4 +48,6 @@ export class PostsComponent implements OnInit {
       })
     });
   }
+
+
 }

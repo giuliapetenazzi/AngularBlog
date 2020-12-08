@@ -4,7 +4,11 @@
     align-items: center;
     height: 100%;
     color: #111;
-    margin: 0% 10% 10% 10%
+    margin: 2% 10%;
+}
+
+.spinner {
+    padding: 20px;
 }
 
 .app .header {
