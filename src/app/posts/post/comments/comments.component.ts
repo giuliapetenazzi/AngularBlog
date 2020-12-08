@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Comment } from './comment';
 import { CommentsService } from './comments.service';
-import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-comments',
@@ -16,7 +15,7 @@ import { stringify } from 'querystring';
 export class CommentsComponent implements OnInit {
   addcommentForm: FormGroup;
   comments: Comment[];
-  
+
   @Input() postId: number;
 
   constructor(
@@ -28,6 +27,10 @@ export class CommentsComponent implements OnInit {
   ngOnInit() {
     console.log('init di CommentsComponent', this, this.postId);
     this.getComments(this.postId);
+    this.addcommentForm = this.formBuilder.group({
+      body: ['', Validators.required]
+    });
+
   }
 
   getComments(postId): void {
@@ -37,14 +40,14 @@ export class CommentsComponent implements OnInit {
 
   onClickAddComment(): void {
     var formControls = this.addcommentForm.controls;
-    var formName = formControls.username.value;
-    var formBody = formControls.username.value;
+    var formBody = formControls.body.value;
 
     const newComment: Comment = {
-      name: formName,
+      name: "testname",
       body: formBody,
       email: "test",
     } as Comment;
+    console.log("sto per mandare", newComment, this.postId);
     this.commentsService
       .addComment(newComment, this.postId)
       .subscribe(comment => this.comments.push(comment));

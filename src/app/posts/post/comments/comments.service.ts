@@ -39,7 +39,7 @@ export class CommentsService {
         Authorization: 'my-auth-token'
       })
     };
-    var url = this.commentsUrl + postId + '/comments';
+    var url = this.commentsUrl + postId.toString() + '/comments';
     return this.http.post<Comment>(this.commentsUrl, comment, HTTPOPTIONS)
       .pipe(
         catchError(this.handleError('addComment', comment))

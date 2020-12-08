@@ -6,13 +6,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpErrorHandler } from './utils/http-error-handler.service';
 import { MessageService } from './utils/message.service';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //my main ui components
 import { AppComponent } from './app.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostComponent } from './posts/post/post.component';
 import { CommentsComponent } from './posts/post/comments/comments.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 
 //ui components
@@ -27,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
     PostsComponent,
     PostComponent,
     CommentsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

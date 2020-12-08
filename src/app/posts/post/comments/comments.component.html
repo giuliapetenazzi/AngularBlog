@@ -17,10 +17,10 @@
 
   <ng-template #elseBlock>No comments yet</ng-template>
 
-  <form class="addcomment-form" [formGroup]="addcommentForm" (ngSubmit)="onClickAddComment()">
+  <form class="addcomment-form"  [formGroup]="addcommentForm"  (ngSubmit)="onClickAddComment()">
     <mat-form-field class="addcomment-full-width">
       <mat-label>Add a comment</mat-label>
-      <textarea matInput formControlName="body"  laceholder=""></textarea>
+      <textarea matInput formControlName="body" placeholder=""></textarea>
     </mat-form-field>
     <button mat-flat-button color="primary" rows="2" [ngClass]="'addcomment-btn'">Send</button>
   </form>
