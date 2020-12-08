@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { User } from './user';
+import { User } from '../utils/user';
 
 @Injectable({ providedIn: 'root' })
 export class LoginService {

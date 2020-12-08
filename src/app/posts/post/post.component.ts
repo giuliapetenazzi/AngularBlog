@@ -3,15 +3,12 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { Post } from '../post';
 import { PostService } from './post.service';
+import { UsersService } from '../../utils/users.service';
 
-/*
-import { Comment } from './comment';
-import { CommentsService } from './comments.service';
-*/
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  providers: [PostService],
+  providers: [PostService, UsersService],
   styleUrls: ['./post.component.css']
 })
 
@@ -20,6 +17,7 @@ export class PostComponent implements OnInit {
 
   constructor(
     private postService: PostService,
+    private usersService: UsersService,
     private route: ActivatedRoute
   ) { }
 
@@ -31,6 +29,18 @@ export class PostComponent implements OnInit {
 
   getPost(id): void {
     this.postService.getPost(id)
-      .subscribe(post => (this.post = post));
+      .subscribe(post => {
+        this.post = post;
+        if (post) this.getUserName(post.userId);
+      });
+  }
+
+  getUserName(userId: number): void {
+    this.usersService.getUserName(userId).subscribe(user => {
+      var name = user.username;
+      this.post.userName = name;
+      //to avoid multiple requests
+      //a caching system should be implemented
+    })
   }
 }
