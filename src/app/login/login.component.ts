@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
+import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ export class LoginComponent implements OnInit {
   hide = true;
 
   constructor(
+    private router: Router,
     private formBuilder: FormBuilder,
     private loginService: LoginService
   ) { }
@@ -21,16 +23,23 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
-  });
+    });
   }
 
+  //onClickLog//in(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): void {
   onClickLogin(): void {
-    console.log("onClickLogin");
     var formControls = this.loginForm.controls;
     var formUsername = formControls.username.value;
     var formPassword = formControls.password.value;
-    var loginResult = this.loginService.login(formUsername, formPassword);
-    console.log("login credentials and result:", formUsername, formPassword, loginResult);
+    var loginSuccess = this.loginService.login(formUsername, formPassword);
+    if (loginSuccess) {
+      this.redirectToPosts();
+    } else {
+      console.error("login failed credentials and result:", formUsername, formPassword, loginSuccess);
+    }
   }
 
+  redirectToPosts(): void {
+    this.router.navigate(['/posts']/*, { queryParams: { returnUrl: state.url }}*/);
+  }
 }

@@ -13,7 +13,6 @@ import { PostsComponent } from './posts/posts.component';
 import { PostComponent } from './posts/post/post.component';
 import { CommentsComponent } from './posts/post/comments/comments.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AddcommentComponent } from './posts/post/comments/addcomment/addcomment.component';
 import { LoginComponent } from './login/login.component';
 
 //ui components
@@ -28,8 +27,6 @@ import { MatButtonModule } from '@angular/material/button';
     PostsComponent,
     PostComponent,
     CommentsComponent,
-    AddcommentComponent,
-    LoginComponent
   ],
   imports: [
     BrowserModule,
