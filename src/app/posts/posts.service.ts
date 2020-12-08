@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { Post } from './post';
-import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
+import { HttpErrorHandler, HandleError } from '../utils/http-error-handler.service';
 
 @Injectable()
 export class PostsService {

@@ -4,6 +4,10 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Post } from '../post';
 import { PostService } from './post.service';
 
+/*
+import { Comment } from './comment';
+import { CommentsService } from './comments.service';
+*/
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',

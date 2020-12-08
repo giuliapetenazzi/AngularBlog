@@ -1,7 +1,7 @@
 <div>
   <h2>Posts</h2>
 
-  <ul class="posts">
+  <div class="posts" *ngIf="posts && posts.length; else elseBlock">
     <li *ngFor="let post of posts" class="post">
       <a [routerLink]="['/post', post.id]" >
         <div class="badge">{{ post.id || -1 }}</div>
@@ -11,6 +11,8 @@
         </div>
       </a>
     </li>
-  </ul>
+  </div>
+
+<ng-template #elseBlock>No posts yet</ng-template>
 
 </div>

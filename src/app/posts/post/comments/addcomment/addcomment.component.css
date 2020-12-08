@@ -1,0 +1,22 @@
+.addcomment-form{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 160px;
+}
+
+.addcomment-full-width {
+    flex: 1;
+}
+
+.addcomment-full-width textarea{
+    min-height: 70px;
+    resize: none;
+}
+
+.addcomment-btn {
+    width: 100px;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
