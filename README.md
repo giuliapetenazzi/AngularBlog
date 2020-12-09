@@ -10,7 +10,7 @@ Pages are served passing through a simple login page, with remember me flag to k
 
 **Intall and run the application**
 
-Prerequisito: avere Node installato (https://nodejs.org/en/) (versione utilizzata 12.18.4)
+Pre-requisite: have Node installed (https://nodejs.org/en/) (versione utilizzata 14.15.1)
 ```
 npm install
 ```
