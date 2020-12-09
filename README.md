@@ -7,6 +7,7 @@ Posts page shows a list of posts, and clicking on one of them, the user can see 
 I used flexbox for styling the application layout and a loader indicator to handle the loading states.
 Pages are served passing through a simple login page, with remember me flag to keep the user logged in using cookies.
 
+*Login credentials* username: dev, password: test
 
 **Intall and run the application**
 
