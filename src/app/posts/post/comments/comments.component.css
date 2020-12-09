@@ -1,7 +1,6 @@
 .comments {
     padding: 0;
     margin-bottom: 20px;
-    width: 90%;
     list-style-type: none;
 }
 
@@ -62,4 +61,13 @@
     right: 0;
     bottom: 0;
     position: absolute;
+}
+
+.error-message {
+    background-color: rgb(253, 186, 186);
+    text-align: center;
+    color: darkred;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px;
 }

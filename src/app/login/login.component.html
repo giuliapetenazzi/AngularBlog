@@ -19,5 +19,7 @@
 
     <button mat-flat-button color="primary" [ngClass]="'login-btn'">Login</button>
 
+    <p class="error-message" *ngIf="errorMessage">{{errorMessage}}</p>
+
   </form>
 </div>

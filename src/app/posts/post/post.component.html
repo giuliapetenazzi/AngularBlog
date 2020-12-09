@@ -1,10 +1,10 @@
 <div class="post-container" *ngIf="post">
 
-    <div class="badge">{{ post.id || -1 }}</div>
+    <div class="badge">{{avatarInitials}}</div>
     <h2> {{post.title}} </h2>
     <p class = "author"> {{post.userName}} </p>
     <p> {{post.body}} </p>
 
-    <app-comments [postId]="post.id"></app-comments>
+    <app-comments class="comments-container" [postId]="post.id"></app-comments>
 
 </div>

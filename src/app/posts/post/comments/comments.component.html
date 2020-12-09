@@ -1,4 +1,4 @@
-<div>
+<div class = "comments-container">
   <h2>Comments</h2>
 
   <mat-spinner *ngIf="loading" mode="indeterminate"> </mat-spinner>
@@ -6,7 +6,7 @@
   <ul class="comments" *ngIf="comments && comments.length; else elseBlock">
     <li *ngFor="let comment of comments">
       <div class="comment">
-        <div class="badge">{{ comment.id || -1 }}</div>
+        <div class="badge">{{comment.avatarInitials}}</div>
         <div class="right">
           <span>{{comment.name}}</span>
           <!-- other data aren't specified in the given template -->
@@ -17,15 +17,17 @@
   </ul>
 
   <ng-template #elseBlock>
-    <p *ngIf="!loading"> No comments yet. Write the first one! </p>
+    <p *ngIf="!loading && !errorMessage"> No posts yet </p>
   </ng-template>
 
-  <form class="addcomment-form"  [formGroup]="addcommentForm"  (ngSubmit)="onClickAddComment()">
+  <p class = "error-message" *ngIf="errorMessage">{{errorMessage}}</p>
+
+  <form class="addcomment-form" [formGroup]="addcommentForm" (ngSubmit)="onClickAddComment()">
     <mat-form-field class="addcomment-full-width">
       <mat-label>Add a comment</mat-label>
-      <textarea matInput formControlName="body" placeholder=""></textarea>
+      <textarea matInput formControlName="body" placeholder="" ></textarea>
     </mat-form-field>
-    <button mat-flat-button color="primary" rows="2" [ngClass]="'addcomment-btn'">Send</button>
+    <button mat-flat-button color="primary" rows="2" [ngClass]="'addcomment-btn'">Send</button> 
   </form>
   <!--app-addcomment></app-addcomment>-->
 

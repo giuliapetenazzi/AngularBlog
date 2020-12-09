@@ -3,7 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { Post } from '../post';
 import { PostService } from './post.service';
-import { UsersService } from '../../utils/users.service';
+import { UsersService } from '../users/users.service';
 
 @Component({
   selector: 'app-post',
@@ -14,6 +14,7 @@ import { UsersService } from '../../utils/users.service';
 
 export class PostComponent implements OnInit {
   post: Post;
+  avatarInitials: string;
 
   constructor(
     private postService: PostService,
@@ -25,6 +26,7 @@ export class PostComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.getPost(params.get('id'));
     });
+    this.avatarInitials = "";
   }
 
   getPost(id): void {
@@ -39,8 +41,9 @@ export class PostComponent implements OnInit {
     this.usersService.getUserName(userId).subscribe(user => {
       var name = user.username;
       this.post.userName = name;
-      //to avoid multiple requests
-      //a caching system should be implemented
+      if (name.length >= 2) {
+        this.avatarInitials = name.substr(0, 2).toUpperCase();
+      }
     })
   }
 }

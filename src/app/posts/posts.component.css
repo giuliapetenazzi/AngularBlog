@@ -52,9 +52,30 @@ h2 {
 
 .post p {
     margin: 10px 0px 0px 0px;
+    max-width: 60em;
+    height: 1.1em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.post span {
+    font-weight: 500;
+}
+.post span.username {
+    color: gray;
 }
 
 a {
     text-decoration: none;
     color: black;
+}
+
+.error-message {
+    background-color: rgb(253, 186, 186);
+    text-align: center;
+    color: darkred;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px;
 }

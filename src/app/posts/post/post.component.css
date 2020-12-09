@@ -26,3 +26,7 @@ h2 {
     font-size: 30px;
     color: white;
 }
+
+.comments-container{
+    width: 100%;
+}

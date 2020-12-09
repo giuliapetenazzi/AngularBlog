@@ -3,19 +3,21 @@
 
   <mat-spinner *ngIf="loading" mode="indeterminate"> </mat-spinner>
 
+  <p class = "error-message" *ngIf="errorMessage">{{errorMessage}}</p>
+
   <div class="posts" *ngIf="posts && posts.length; else elseBlock">
     <li *ngFor="let post of posts" class="post">
       <a [routerLink]="['/post', post.id]">
-        <div class="badge">{{ post.id || -1 }}</div>
+        <div class="badge"></div>
         <div class="right">
-          <span>{{post.title}}</span> <span class="separator"></span> <span>{{post.userName}}</span>
+          <span>{{post.title}}</span> <span class="separator"></span> <span class = "username">{{post.userName}}</span>
           <p>{{post.body}}</p>
         </div>
       </a>
     </li>
   </div>
   <ng-template #elseBlock>
-    <p *ngIf="!loading"> No posts yet </p>
+    <p *ngIf="!loading && !errorMessage"> No posts yet </p>
   </ng-template>
 
 </div>

@@ -6,6 +6,7 @@ import { catchError } from 'rxjs/operators';
 
 import { Post } from './post';
 import { HttpErrorHandler, HandleError } from '../utils/http-error-handler.service';
+import { AppSettings } from '../utils/appSettings';
 
 @Injectable()
 export class PostsService {
@@ -21,7 +22,7 @@ export class PostsService {
 
   /** GET postes from the server */
   getPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(this.postsUrl)
+    return this.http.get<Post[]>(AppSettings.API_ENDPOINT+'/posts')
       .pipe(
         catchError(this.handleError('getPosts', []))
       );

@@ -12,6 +12,7 @@ import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/ro
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   hide = true;
+  errorMessage: string;
 
   constructor(
     private router: Router,
@@ -24,22 +25,26 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
+    this.errorMessage = "";
   }
 
-  //onClickLog//in(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): void {
   onClickLogin(): void {
-    var formControls = this.loginForm.controls;
-    var formUsername = formControls.username.value;
-    var formPassword = formControls.password.value;
-    var loginSuccess = this.loginService.login(formUsername, formPassword);
-    if (loginSuccess) {
-      this.redirectToPosts();
+    if (!this.loginForm.valid) {
+      this.errorMessage = "Enter both username and password";
     } else {
-      console.error("login failed credentials and result:", formUsername, formPassword, loginSuccess);
+      var formControls = this.loginForm.controls;
+      var formUsername = formControls.username.value;
+      var formPassword = formControls.password.value;
+      var loginSuccess = this.loginService.login(formUsername, formPassword);
+      if (loginSuccess) {
+        this.redirectToPosts();
+      } else {
+        this.errorMessage = "Wrong username or password. Please check and try again";
+      }
     }
   }
 
   redirectToPosts(): void {
-    this.router.navigate(['/posts']/*, { queryParams: { returnUrl: state.url }}*/);
+    this.router.navigate(['/posts']);
   }
 }

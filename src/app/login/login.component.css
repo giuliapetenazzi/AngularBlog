@@ -19,3 +19,13 @@
 .login-btn {
     width: 100%;
 }
+
+.error-message {
+    background-color: rgb(253, 186, 186);
+    text-align: center;
+    color: darkred;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 290px;
+    padding: 10px;
+}

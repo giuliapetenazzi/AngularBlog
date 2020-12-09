@@ -7,11 +7,11 @@ import { catchError } from 'rxjs/operators';
 import { Comment } from './comment';
 import { HttpErrorHandler, HandleError } from '../../../utils/http-error-handler.service';
 import { HttpHeaders } from '@angular/common/http';
+import { AppSettings } from '../../../utils/appSettings';
 
 @Injectable()
 export class CommentsService {
   postId = -1;
-  commentsUrl = 'https://jsonplaceholder.typicode.com/posts/';
   private handleError: HandleError;
 
   constructor(
@@ -23,7 +23,7 @@ export class CommentsService {
 
   /** GET comments from the server */
   getComments(postId): Observable<Comment[]> {
-    var url = this.commentsUrl + postId + '/comments';
+    var url = AppSettings.API_ENDPOINT + '/posts/' + postId.toString() + '/comments';
     //console.log("url", url);
     return this.http.get<Comment[]>(url)//url)
       .pipe(
@@ -39,8 +39,8 @@ export class CommentsService {
         Authorization: 'my-auth-token'
       })
     };
-    var url = this.commentsUrl + postId.toString() + '/comments';
-    return this.http.post<Comment>(this.commentsUrl, comment, HTTPOPTIONS)
+    var url = AppSettings.API_ENDPOINT + '/posts/' + postId.toString() + '/comments';
+    return this.http.post<Comment>(url, comment, HTTPOPTIONS)
       .pipe(
         catchError(this.handleError('addComment', comment))
       );

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 import { Post } from './post';
 import { PostsService } from './posts.service';
-import { UsersService } from '../utils/users.service';
+import { UsersService } from './users/users.service';
 
 @Component({
   selector: 'app-posts',
@@ -15,25 +14,30 @@ import { UsersService } from '../utils/users.service';
 export class PostsComponent implements OnInit {
   loading = true;
   posts: Post[];
+  errorMessage: string;
 
   constructor(
     private postsService: PostsService,
     private usersService: UsersService,
-    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.getPosts();
     this.posts = [];
+    this.errorMessage = "";
   }
 
   getPosts(): void {
-    var me = this;
     this.postsService.getPosts()
       .subscribe(posts => {
-        this.posts = posts;
         this.loading = false;
-        this.getUsersName(posts);
+        //posts = [];
+        if (!posts || !posts.length) {
+          this.errorMessage = "Sorry, there was an error loading data about posts";
+        } else {
+          this.posts = posts;
+          this.getUsersName(posts);
+        }
       });
   }
 
