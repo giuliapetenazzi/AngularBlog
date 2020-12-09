@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+/* Message class, mainly used to manage errors in http-error-handler.service.ts */
 @Injectable()
 export class MessageService {
   messages: string[] = [];
@@ -12,7 +13,6 @@ export class MessageService {
     this.messages = [];
   }
 }
-
 
 /*
 Copyright Google LLC. All Rights Reserved.

@@ -8,9 +8,11 @@ import { Post } from './post';
 import { HttpErrorHandler, HandleError } from '../utils/http-error-handler.service';
 import { AppSettings } from '../utils/appSettings';
 
+/**
+ * Posts service manages the GET request to obtain the posts array
+ */
 @Injectable()
 export class PostsService {
-  postsUrl = 'https://jsonplaceholder.typicode.com/posts';
   private handleError: HandleError;
 
   constructor(

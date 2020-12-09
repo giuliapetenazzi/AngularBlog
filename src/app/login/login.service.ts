@@ -3,6 +3,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../users/user';
 import { CookieService } from 'ngx-cookie-service';
 
+/**Login Service is used in the login phase, but also to manage the remember me flag
+ * and the logout phase and to detect if a given user is logged in or not */
+
 @Injectable({ providedIn: 'root' })
 export class LoginService {
 

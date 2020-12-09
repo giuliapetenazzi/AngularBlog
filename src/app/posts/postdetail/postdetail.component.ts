@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-
+import { ActivatedRoute } from '@angular/router';
 import { Post } from '../post';
 import { PostService } from './postdetail.service';
 import { UsersService } from '../../users/users.service';
 
+/** Postdetail component, that renders the postdetail page */
 @Component({
   selector: 'app-post',
   templateUrl: './postdetail.component.html',

@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router'; // CLI imports router
+import { Routes, RouterModule } from '@angular/router'; 
+import { AuthGuard } from './utils/auth-guard';
 
-import { AppComponent } from './app.component';
+//main components
 import { PostsComponent } from './posts/posts.component';
 import { LoginComponent } from './login/login.component';
 import { PostdetailComponent } from './posts/postdetail/postdetail.component';
-import { AuthGuard } from './utils/auth-guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent}, //free access
   { path: 'posts', component: PostsComponent, canActivate: [AuthGuard]}, //access only if AuthGuard
-  { path: 'post/:id', component:  PostdetailComponent, canActivate: [AuthGuard]},  //access only if AutGuard
-  { path: '**', redirectTo: 'login'/*, pathMatch: 'full'*/}
+  { path: 'post/:id', component:  PostdetailComponent, canActivate: [AuthGuard]},  //access only if AuthGuard
+  { path: '**', redirectTo: 'login'}
 ]
 
 @NgModule({

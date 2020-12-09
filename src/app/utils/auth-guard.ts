@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-
 import { LoginService } from '../login/login.service';
 
+//auth guard prevents unauthorized users to access pages
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
     constructor(

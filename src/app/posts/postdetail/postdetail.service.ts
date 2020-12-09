@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-
 import { Post } from '../post';
 import { HttpErrorHandler, HandleError } from '../../utils/http-error-handler.service';
+import { AppSettings } from '../../utils/appSettings';
 
+/**This service, through its method, retrives data about post, given a certain id */
 @Injectable()
 export class PostService {
-    postUrl: string = "https://jsonplaceholder.typicode.com/posts";
     private handleError: HandleError;
 
     constructor(
@@ -21,7 +20,8 @@ export class PostService {
 
     /** GET post from the server */
     getPost(postId): Observable<Post> {
-        return this.http.get<Post>(`${this.postUrl}/${postId}`)
+        var url = AppSettings.API_ENDPOINT + '/posts/' + postId;
+        return this.http.get<Post>(url)
             .pipe(
                 catchError(this.handleError('getPost', {} as Post))
             );

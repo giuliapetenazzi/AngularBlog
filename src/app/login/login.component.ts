@@ -3,7 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
 import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
-
+/**
+ * Login Component, to render the login page
+ */
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

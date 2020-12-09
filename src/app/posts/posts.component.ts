@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Post } from './post';
 import { PostsService } from './posts.service';
 import { UsersService } from '../users/users.service';
 import { LoginService } from '../login/login.service';
+
+/** Posts components, renders the Posts page using the method getPosts
+ * and the gestUsersName to show the name of the user starting from his id */
 
 @Component({
   selector: 'app-posts',

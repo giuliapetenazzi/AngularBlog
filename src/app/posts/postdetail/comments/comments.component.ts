@@ -6,6 +6,7 @@ import { Comment } from './comment';
 import { CommentsService } from './comments.service';
 import { LoginService } from '../../../login/login.service';
 
+/** Comments component, that renders the comments list and manages the and comment */
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
@@ -65,7 +66,7 @@ export class CommentsComponent implements OnInit {
       const newComment: Comment = {
         name: name,
         body: formBodyValue,
-        email: "", //users' data management not mandatory (and not useful for the given template)
+        email: "", //users' data management not required and not useful for the given template
       } as Comment;
 
       this.commentsService

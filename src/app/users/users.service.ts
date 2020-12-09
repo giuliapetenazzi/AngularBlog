@@ -8,6 +8,8 @@ import { User } from './user';
 import { HttpErrorHandler, HandleError } from '../utils/http-error-handler.service';
 import { AppSettings } from '../utils/appSettings';
 
+/** User Service is used to get users from the server,
+ * for displaying the name of a user starting from his id */
 @Injectable()
 export class UsersService {
   private handleError: HandleError;

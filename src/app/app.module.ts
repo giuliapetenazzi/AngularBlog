@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 
-//my main ui components
+//main components
 import { AppComponent } from './app.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostdetailComponent } from './posts/postdetail/postdetail.component';
@@ -36,6 +36,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     //ui components
     MatFormFieldModule,
     MatIconModule,
@@ -43,10 +47,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatButtonModule,
     MatProgressSpinnerModule,
     MatCheckboxModule,
-    //others
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule, ReactiveFormsModule
   ],
   exports: [
     MatFormFieldModule,
@@ -56,7 +56,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatProgressSpinnerModule,
     MatCheckboxModule,
   ],
-  providers: [ //mine
+  providers: [
     HttpErrorHandler,
     CookieService,
     MessageService

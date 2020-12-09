@@ -1,14 +1,9 @@
 import { Component } from '@angular/core';
-
 import {
-  Event,
-  NavigationCancel,
-  NavigationEnd,
-  NavigationError,
-  NavigationStart,
-  Router
+  Event, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router
 } from '@angular/router';
 
+//logic to manage the loading state of the application
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

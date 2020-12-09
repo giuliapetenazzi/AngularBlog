@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-
 import { Observable, of } from 'rxjs';
-
 import { MessageService } from './message.service';
 
 /** Type of the handleError function returned by HttpErrorHandler.createHandleError */
+/** This is a util file that helps in manage errors:
+ * https://jasonwatmore.com/post/2019/06/10/angular-8-user-registration-and-login-example-tutorial#user-ts*/
 export type HandleError =
   <T> (operation?: string, result?: T) => (error: HttpErrorResponse) => Observable<T>;
 

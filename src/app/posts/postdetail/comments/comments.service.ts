@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-
 import { Comment } from './comment';
 import { HttpErrorHandler, HandleError } from '../../../utils/http-error-handler.service';
 import { HttpHeaders } from '@angular/common/http';
 import { AppSettings } from '../../../utils/appSettings';
 
+/**Comments service that manages the retrieving of the comments list
+ * and the add comment operation */
 @Injectable()
 export class CommentsService {
   postId = -1;
@@ -24,7 +24,6 @@ export class CommentsService {
   /** GET comments from the server */
   getComments(postId): Observable<Comment[]> {
     var url = AppSettings.API_ENDPOINT + '/posts/' + postId.toString() + '/comments';
-    //console.log("url", url);
     return this.http.get<Comment[]>(url)//url)
       .pipe(
         catchError(this.handleError('getComments', []))

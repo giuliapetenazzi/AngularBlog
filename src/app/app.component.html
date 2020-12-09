@@ -1,23 +1,6 @@
 <div class="app">
   <mat-spinner *ngIf="loading" mode="indeterminate"></mat-spinner>
-  <!--
-    <div class="header">
-    <h1>Blog</h1>
+  <div class="content-router">
+    <router-outlet></router-outlet>
   </div>
--->
-  <!--<ng-template #elseBlock>-->
-    <div class="content-router">
-      <!--
-  <nav>
-    <ul>
-      <li><a routerLink="/posts" routerLinkActive="active">Posts Component</a></li>
-    </ul>
-  </nav>
--->
-      <router-outlet></router-outlet>
-    </div>
-    <!--
-  <div class="footer">Author: Petenazzi</div>
--->
-  <!--</ng-template>-->
 </div>
