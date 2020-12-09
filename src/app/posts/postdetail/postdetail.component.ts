@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { Post } from '../post';
-import { PostService } from './post.service';
+import { PostService } from './postdetail.service';
 import { UsersService } from '../../users/users.service';
 
 @Component({
   selector: 'app-post',
-  templateUrl: './post.component.html',
+  templateUrl: './postdetail.component.html',
   providers: [PostService, UsersService],
-  styleUrls: ['./post.component.css']
+  styleUrls: ['./postdetail.component.css']
 })
 
-export class PostComponent implements OnInit {
+export class PostdetailComponent implements OnInit {
   post: Post;
   avatarInitials: string;
 

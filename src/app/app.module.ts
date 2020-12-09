@@ -12,8 +12,8 @@ import { CookieService } from 'ngx-cookie-service';
 //my main ui components
 import { AppComponent } from './app.component';
 import { PostsComponent } from './posts/posts.component';
-import { PostComponent } from './posts/post/post.component';
-import { CommentsComponent } from './posts/post/comments/comments.component';
+import { PostdetailComponent } from './posts/postdetail/postdetail.component';
+import { CommentsComponent } from './posts/postdetail/comments/comments.component';
 import { LoginComponent } from './login/login.component';
 
 //ui components
@@ -28,7 +28,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   declarations: [
     AppComponent,
     PostsComponent,
-    PostComponent,
+    PostdetailComponent,
     CommentsComponent,
     LoginComponent
   ],
