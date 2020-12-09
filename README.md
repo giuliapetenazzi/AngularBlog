@@ -1,27 +1,22 @@
-# MyApp
+# Angular Blog
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+Web app that represents a blog, showing details about posts and comments, using Angular.
 
-## Development server
+This single page application, developed using Angular 11, implements a simple Blog using the APIs provided by https://jsonplaceholder.typicode.com.
+Posts page shows a list of posts, and clicking on one of them, the user can see comments regarding that post, and can insert a new comment.
+I used flexbox for styling the application layout and a loader indicator to handle the loading states.
+Pages are served passing through a simple login page, with remember me flag to keep the user logged in using cookies.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+*Login credentials* username: dev, password: test
 
-## Code scaffolding
+**Intall and run the application**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Pre-requisite: have Node installed (https://nodejs.org/en/) (used version 14.15.1)
+```
+npm install
+```
 
-## Build
+```
+npm start
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
