@@ -3,7 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { Post } from '../post';
 import { PostService } from './post.service';
-import { UsersService } from '../users/users.service';
+import { UsersService } from '../../users/users.service';
 
 @Component({
   selector: 'app-post',

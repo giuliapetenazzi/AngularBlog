@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { Post } from './post';
 import { PostsService } from './posts.service';
-import { UsersService } from './users/users.service';
+import { UsersService } from '../users/users.service';
+import { LoginService } from '../login/login.service';
 
 @Component({
   selector: 'app-posts',
@@ -19,6 +20,7 @@ export class PostsComponent implements OnInit {
   constructor(
     private postsService: PostsService,
     private usersService: UsersService,
+    private loginService: LoginService,
   ) { }
 
   ngOnInit() {
@@ -53,5 +55,7 @@ export class PostsComponent implements OnInit {
     });
   }
 
-
+  logout(): void {
+    this.loginService.logout();
+  }
 }

@@ -17,6 +17,8 @@
       </button>
     </mat-form-field>
 
+    <mat-checkbox class="remember-me" color="primary" formControlName="rememberMe">Remember me</mat-checkbox>
+
     <button mat-flat-button color="primary" [ngClass]="'login-btn'">Login</button>
 
     <p class="error-message" *ngIf="errorMessage">{{errorMessage}}</p>

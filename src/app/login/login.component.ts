@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
 import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,19 +12,21 @@ import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/ro
 
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  //checked = false;
   hide = true;
   errorMessage: string;
 
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private loginService: LoginService
+    private loginService: LoginService,
   ) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      rememberMe: ['', Validators.nullValidator]
     });
     this.errorMessage = "";
   }
@@ -35,7 +38,8 @@ export class LoginComponent implements OnInit {
       var formControls = this.loginForm.controls;
       var formUsername = formControls.username.value;
       var formPassword = formControls.password.value;
-      var loginSuccess = this.loginService.login(formUsername, formPassword);
+      var formRememberMe = formControls.rememberMe.value;
+      var loginSuccess = this.loginService.login(formUsername, formPassword, formRememberMe);
       if (loginSuccess) {
         this.redirectToPosts();
       } else {
@@ -47,4 +51,5 @@ export class LoginComponent implements OnInit {
   redirectToPosts(): void {
     this.router.navigate(['/posts']);
   }
+
 }

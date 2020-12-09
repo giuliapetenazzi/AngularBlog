@@ -1,38 +1,46 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { User } from '../posts/users/user';
+import { User } from '../users/user';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({ providedIn: 'root' })
 export class LoginService {
 
     readonly VALIDUSERNAME: string;
     readonly VALIDPASSWORD: string;
-    //public currentUser: Observable<User>; //used to react when user changes, now not used
     private currentUserSubject: BehaviorSubject<User>; //to get the current user value
 
-    constructor() {
+    constructor(
+        private cookieService: CookieService
+    ) {
         this.VALIDUSERNAME = "dev";
         this.VALIDPASSWORD = "test";
-        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
-        //this.currentUser = this.currentUserSubject.asObservable();
+        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(sessionStorage.getItem('currentUser')));
     }
 
     public get currentUserValue(): User {
         return this.currentUserSubject.value;
     }
 
-    login(username, password) {
+    login(username, password, rememberMe):boolean {
         var validationResult = (username === this.VALIDUSERNAME && password === this.VALIDPASSWORD);
         if (validationResult) {
-            const USER:User = {username, password};
-            localStorage.setItem('currentUser', JSON.stringify(USER));
+            const USER: User = { username, password };
+            sessionStorage.setItem('currentUser', JSON.stringify(USER));
             this.currentUserSubject.next(USER);
+            // supposing this cookie never exipires
+            // a privacy disclaimer should be shown to the user
+            if (rememberMe) { this.cookieService.set('username', username); }
         }
         return validationResult;
     }
 
-    logout() {
-        localStorage.removeItem('currentUser');
-        //TODO
+    logout():void {
+        sessionStorage.removeItem('currentUser');
+        this.cookieService.deleteAll();
+    }
+
+    isUserLoggedIn():boolean {
+        return (!!this.currentUserSubject.value || !!this.cookieService.get('username'));
     }
 }

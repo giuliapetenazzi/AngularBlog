@@ -1,16 +1,21 @@
-<div>
+<div class = "postsContainer">
+  
+  <button mat-button class="logout" *ngIf="!loading" [routerLink]="['/login']" (click)="logout()">
+    Logout
+  </button>
+
   <h2>Posts</h2>
 
   <mat-spinner *ngIf="loading" mode="indeterminate"> </mat-spinner>
 
-  <p class = "error-message" *ngIf="errorMessage">{{errorMessage}}</p>
+  <p class="error-message" *ngIf="errorMessage">{{errorMessage}}</p>
 
   <div class="posts" *ngIf="posts && posts.length; else elseBlock">
     <li *ngFor="let post of posts" class="post">
       <a [routerLink]="['/post', post.id]">
         <div class="badge"></div>
         <div class="right">
-          <span>{{post.title}}</span> <span class="separator"></span> <span class = "username">{{post.userName}}</span>
+          <span>{{post.title}}</span> <span class="separator"></span> <span class="username">{{post.userName}}</span>
           <p>{{post.body}}</p>
         </div>
       </a>

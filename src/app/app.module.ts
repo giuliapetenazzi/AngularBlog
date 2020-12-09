@@ -7,6 +7,7 @@ import { HttpErrorHandler } from './utils/http-error-handler.service';
 import { MessageService } from './utils/message.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 //my main ui components
 import { AppComponent } from './app.component';
@@ -21,7 +22,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatInputModule,
     MatButtonModule,
     MatProgressSpinnerModule,
+    MatCheckboxModule,
     //others
     AppRoutingModule,
     HttpClientModule,
@@ -52,9 +54,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatInputModule,
     MatButtonModule,
     MatProgressSpinnerModule,
+    MatCheckboxModule,
   ],
   providers: [ //mine
     HttpErrorHandler,
+    CookieService,
     MessageService
   ],
   bootstrap: [AppComponent]

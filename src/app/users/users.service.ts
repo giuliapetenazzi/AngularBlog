@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { User } from './user';
-import { HttpErrorHandler, HandleError } from '../../utils/http-error-handler.service';
-import { AppSettings } from '../../utils/appSettings';
+import { HttpErrorHandler, HandleError } from '../utils/http-error-handler.service';
+import { AppSettings } from '../utils/appSettings';
 
 @Injectable()
 export class UsersService {

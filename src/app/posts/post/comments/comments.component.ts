@@ -76,6 +76,7 @@ export class CommentsComponent implements OnInit {
             this.errorMessage = "Sorry, there was an error adding the comment";
           } else {
             this.errorMessage = "";
+            this.addcommentForm.reset();
             if (comment && comment.name && comment.name.length >= 2)
               comment.avatarInitials = comment.name.substr(0, 2).toUpperCase();
             this.comments.push(comment)

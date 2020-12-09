@@ -1,6 +1,19 @@
+.postsContainer{
+    position: relative;
+}
+
 h2 {
     padding: 20px 20px 40px 20px;
     text-align: center;
+}
+
+.logout{
+    position: absolute;
+    right: 0;
+}
+
+.logout:hover {
+    background-color: #f3f3f3;
 }
 
 .post {
